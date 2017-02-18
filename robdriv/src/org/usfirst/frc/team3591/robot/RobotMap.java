@@ -22,6 +22,9 @@ public class RobotMap {
 	public static final int FRONT_RIGHT_TALON_ID = 21;
 	public static final int BACK_RIGHT_TALON_ID = 22;
 	
+	public static final int CLIMB_TALON_LEFT = 31;
+	public static final int CLIMB_TALON_RIGHT = 32;
+	
 	public static final int DRIVE_STICK = 0;
 	public static final int SHOOT_STICK = 1;
 	

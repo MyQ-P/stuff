@@ -8,7 +8,9 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team3591.robot.commands.ClimbCommand;
 import org.usfirst.frc.team3591.robot.commands.DriveCommand;
+import org.usfirst.frc.team3591.robot.subsystems.ClimbSubsystem;
 import org.usfirst.frc.team3591.robot.subsystems.DriveSubsystem;
 
 
@@ -23,9 +25,11 @@ public class Robot extends IterativeRobot {
 
 	
 	public static final DriveSubsystem driveSubsystem = new DriveSubsystem();
+	public static final ClimbSubsystem climbSubsystem = new ClimbSubsystem();
 	public static OI oi;
 	
 	public static final DriveCommand driveCommand = new DriveCommand();
+	public static final ClimbCommand climbCommand = new ClimbCommand(1);
 	//Command driveCommand;
 
 
@@ -85,6 +89,7 @@ public class Robot extends IterativeRobot {
 	public void teleopInit() {
 		driveCommand.start();
 		System.out.println("2");
+		climbCommand.start();
 	}
 
 	/**

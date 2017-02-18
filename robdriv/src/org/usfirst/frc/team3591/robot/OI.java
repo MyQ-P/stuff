@@ -1,7 +1,10 @@
 package org.usfirst.frc.team3591.robot;
 
+import org.usfirst.frc.team3591.robot.commands.ClimbCommand;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 
 /**
@@ -9,8 +12,10 @@ import edu.wpi.first.wpilibj.buttons.Button;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	Joystick driveStick = new Joystick(RobotMap.DRIVE_STICK);
+	public static Joystick driveStick = new Joystick(RobotMap.DRIVE_STICK);
 	Joystick shootStick = new Joystick(RobotMap.SHOOT_STICK);
+	private final Button driveStickTrigger = new JoystickButton(driveStick, 1);
+	private final Button driveStickB2 = new JoystickButton(driveStick, 2);
 	public enum Axis{
 		X,Y,Z,THROTTLE
 	}
@@ -76,4 +81,10 @@ public class OI {
 				return 0;	
 		}
 	}
+	
+	public OI(){
+		driveStickTrigger.whileHeld(new ClimbCommand(1));
+		driveStickB2.whileHeld(new ClimbCommand(-1));
+	}
+	
 }
