@@ -31,6 +31,15 @@ public class DriveSubsystem extends Subsystem {
 		robotDrive = new RobotDrive(frontLeftTalon,backLeftTalon,frontRightTalon,backRightTalon);
 		System.out.println("robotdrive const");
 		
+		frontLeftTalon.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
+		backLeftTalon.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
+		frontRightTalon.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
+		backRightTalon.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
+		
+		frontLeftTalon.setPID(.5, 0, .1, .1, 1000, 2, 0);
+		backLeftTalon.setPID(.5, 0, .1, .1, 1000, 2, 0);
+		frontRightTalon.setPID(.5, 0, .1, .1, 1000, 2, 0);
+		backRightTalon.setPID(.5, 0, .1, .1, 1000, 2, 0);
 	}
 	
 	public void drive() {
